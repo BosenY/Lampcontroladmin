@@ -10,7 +10,7 @@ db.once('open', (callback) => {
     })
     // 创建schema
 
-
+//用户表
 const userListSchema = new mongoose.Schema({
     userName: String,
     pwd: String,
@@ -19,6 +19,7 @@ const userListSchema = new mongoose.Schema({
     age: Number,
     email: String
 })
+//设备表
 const equipmentListSchema = new mongoose.Schema({
     name: String,
     state: Number,
@@ -26,13 +27,24 @@ const equipmentListSchema = new mongoose.Schema({
     changeTime : Date
 
 })
+//收集数据表
+const collectDataListSchema = new mongoose.Schema({
+    owner: String, //所有者
+    data: Object,
+    time: Date,
+    nodeName: String,
+    positionName :String
+})
+//查看所有收集数据
+// const findalldata = new mongoose.Schema({
+
+// })
 
 
 // 创建model
 const Model = {
-
     equipmentList: mongoose.model('equipmentList', equipmentListSchema),
-    userList: mongoose.model('userList', userListSchema)
-
+    userList: mongoose.model('userList', userListSchema),
+    collectDataList: mongoose.model('collectDataList',collectDataListSchema)
 }
 module.exports = Model

@@ -16,6 +16,9 @@ const index = require('./routes/index');
 const users = require('./routes/users');
 const list = require('./routes/list')   //用户列表
 const resign = require('./routes/resign')  //注册
+const collectdata = require('./routes/collectdata')  //储存收集的数据
+const findalldata = require('./routes/findalldata')  //查找收集的数据
+
 
 // middlewares
 app.use(convert(bodyparser));
@@ -39,6 +42,8 @@ router.use('/', index.routes(), index.allowedMethods());
 router.use('/users', users.routes(), users.allowedMethods());
 router.use('/list', list.routes(), list.allowedMethods());
 router.use('/resign', resign.routes(), resign.allowedMethods());
+router.use('/collectdata', collectdata.routes(), collectdata.allowedMethods());
+router.use('/findalldata', findalldata.routes(), findalldata.allowedMethods());
 
 app.use(router.routes(), router.allowedMethods());
 // response
