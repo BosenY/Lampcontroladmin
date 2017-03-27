@@ -2,7 +2,7 @@ var Model = require('../models/index')
 var router = require('koa-router')();
 
 router.get('/', async function (ctx, next) {
-
+    //Test
 
     await Model.userList.find({userName: ctx.query.owner}, {userName: true}, function (err, docs) {
         if (!err) {
